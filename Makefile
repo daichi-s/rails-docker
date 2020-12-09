@@ -21,9 +21,8 @@ clean: ## Docker Clean !!手持ちのイメージ、ボリュームがすべて�
 	@docker image prune
 	@docker volume prune
 new:
-	# @$(DC) run web rails new . --force --no-deps --skip-bundle // スキップいらない？
-	@make build
 	@$(DC) run web rails new . --force --no-deps
 	@$(DC) run web bundle install
 	@$(DC) run web bundle exec rails webpacker:install
+	@make build
 	@make up
